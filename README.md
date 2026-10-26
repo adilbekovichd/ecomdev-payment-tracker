@@ -2,16 +2,25 @@
 
 Мини-приложение для учёта учеников, платежей и задолженностей. Backend: Python 3.10+, FastAPI и SQLite. Веб-интерфейс адаптируется под телефон и компьютер.
 
-## Запуск с нуля
+## Запуск с нуля (Windows PowerShell)
 
 ```powershell
-py -3.12 -m venv .venv
+# Сначала перейдите в корень клонированного репозитория:
+cd путь\к\ecomdev-payment-tracker
+Get-ChildItem requirements.txt, app\main.py
+
+py -m venv .venv
 .venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 python -m uvicorn app.main:app --reload
 ```
 
+Перед запуском `Get-ChildItem` должен показать `requirements.txt` и `app\main.py`. Если команда `python -m venv .venv` завершилась ошибкой копирования `venvlauncher.exe`, закройте сервер и терминал с активным окружением, откройте новый PowerShell в корне репозитория и удалите только сломанное виртуальное окружение: `Remove-Item -Recurse -Force .venv`. Затем повторите команды выше. Не запускайте их из случайной папки вроде `C:\PythonProject1`, если именно там нет файлов проекта.
+
 Откройте интерфейс на [http://127.0.0.1:8000](http://127.0.0.1:8000), а интерактивную документацию REST API — на [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs). База `data/payments.db` создаётся при первом запуске. Для другой базы задайте `DATABASE_PATH`.
+
+В интерфейсе можно добавлять учеников, менять их данные, удалять записи, смотреть долги за выбранный месяц и вносить оплаты. Страница адаптируется под телефон; декоративные объёмные элементы собраны на CSS и не требуют сторонних библиотек.
 
 ## REST API
 
