@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Учет оплат — Ecomdev</title>
+  <style>
+    :root{color-scheme:light;--ink:#17233b;--muted:#8290a8;--line:#e9edf4;--blue:#5067ed;--blue-dark:#344ad0;--bg:#f5f7fb;--white:#fff;--green:#239772;--red:#e36b72;--shadow:0 12px 36px rgba(31,47,84,.06)}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer} .app{min-height:100vh;display:grid;grid-template-columns:248px minmax(0,1fr)}
+    .sidebar{background:#17233b;color:#fff;padding:28px 18px;display:flex;flex-direction:column;gap:36px}.brand{display:flex;align-items:center;gap:12px;padding:0 8px}.brand-mark{width:38px;height:38px;border-radius:13px;background:linear-gradient(145deg,#8293ff,#5067ed);display:grid;place-items:center;font-weight:800;font-size:18px;box-shadow:0 7px 18px #5067ed66}.brand-name{font-size:17px;font-weight:700;letter-spacing:.1px}.brand-caption{display:block;color:#91a0bc;font-size:11px;margin-top:1px}.nav-label{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:#8290a8;padding:0 12px;margin-bottom:10px}.nav-item{display:flex;align-items:center;gap:12px;padding:11px 13px;border-radius:12px;color:#aeb9ce;text-decoration:none;margin:3px 0;font-weight:550}.nav-item.active{color:#fff;background:#2b3955}.nav-icon{width:20px;text-align:center;font-size:16px}.sidebar-foot{margin-top:auto;border:1px solid #ffffff18;background:#ffffff08;border-radius:14px;padding:14px;color:#aeb9ce;font-size:12px}.sidebar-foot strong{display:block;color:#fff;font-size:13px;margin-bottom:3px}
+    main{padding:28px clamp(20px,4vw,56px) 48px;max-width:1600px;width:100%;margin:0 auto}.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}.crumb{font-size:13px;color:var(--muted)}.crumb b{color:#4e5d76;font-weight:600}.user{display:flex;align-items:center;gap:10px}.avatar{width:38px;height:38px;border-radius:13px;background:#e9edff;color:#5165dc;display:grid;place-items:center;font-weight:700}.user-copy{font-size:13px;font-weight:650}.user-copy span{display:block;color:var(--muted);font-size:11px;font-weight:450}.heading{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:25px}.heading h1{font-size:29px;letter-spacing:-.8px;line-height:1.2;margin:0 0 7px}.heading p{margin:0;color:var(--muted);font-size:14px}.actions{display:flex;gap:10px;align-items:center}.month{height:43px;border:1px solid var(--line);background:white;border-radius:11px;padding:0 13px;color:#53627b;outline:none}.button{height:43px;padding:0 16px;border:0;border-radius:11px;background:var(--blue);color:#fff;font-weight:650;box-shadow:0 6px 14px #5067ed30;transition:.18s}.button:hover{background:var(--blue-dark);transform:translateY(-1px)}.button.secondary{background:#edf0ff;color:#4e60d6;box-shadow:none}.button.secondary:hover{background:#e2e7ff}
+    .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:22px}.stat{background:var(--white);padding:20px 21px;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}.stat-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px}.stat-icon{height:34px;width:34px;border-radius:11px;background:#f0f2ff;color:var(--blue);display:grid;place-items:center;font-size:16px}.stat-value{font-size:25px;font-weight:730;letter-spacing:-.5px;margin-top:13px}.stat-note{font-size:11px;color:var(--muted);margin-top:2px}.stat.red .stat-icon{background:#fff0f0;color:var(--red)}.stat.green .stat-icon{background:#eaf8f3;color:var(--green)}
+    .panel{background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}.panel-head{padding:19px 22px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:12px}.panel-head h2{margin:0;font-size:16px;letter-spacing:-.2px}.panel-subtitle{font-size:12px;color:var(--muted);margin-top:3px}.search{height:37px;width:min(220px,40vw);border:1px solid var(--line);background:#fbfcfe;border-radius:10px;padding:0 12px;outline:none}.search:focus,.month:focus,input:focus,select:focus{border-color:#9ba8ff;box-shadow:0 0 0 3px #5067ed19}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:700px}th{text-align:left;padding:12px 20px;color:#92a0b6;font-size:10px;letter-spacing:.7px;text-transform:uppercase;font-weight:650;background:#fcfdff}td{padding:15px 20px;border-top:1px solid #f0f2f6;font-size:13px;color:#4b5b74}tbody tr:hover{background:#fafbff}.student-cell{display:flex;align-items:center;gap:11px;color:var(--ink);font-weight:650}.student-avatar{width:36px;height:36px;flex:0 0 36px;border-radius:12px;background:#edf0ff;color:#5669dd;display:grid;place-items:center;font-size:12px;font-weight:700}.student-meta{font-size:11px;color:var(--muted);font-weight:450;margin-top:1px}.money{font-variant-numeric:tabular-nums;font-weight:650;white-space:nowrap}.debt{color:#d65e67}.badge{display:inline-flex;align-items:center;padding:5px 9px;border-radius:20px;font-size:11px;font-weight:650;background:#fff1f1;color:#d45e68}.badge.partial{background:#fff7e9;color:#bc842d}.pay-small{border:1px solid #e5e9ff;background:#f4f5ff;color:#5365da;border-radius:9px;padding:7px 10px;font-size:11px;font-weight:650}.pay-small:hover{background:#e9ecff}.empty,.loading{padding:48px 20px;text-align:center;color:var(--muted);font-size:13px}.empty strong{display:block;color:#53627b;font-size:15px;margin-bottom:4px}.notice{position:fixed;right:22px;bottom:22px;padding:13px 18px;background:#17233b;color:white;border-radius:12px;box-shadow:var(--shadow);opacity:0;transform:translateY(8px);pointer-events:none;transition:.2s;z-index:20}.notice.show{opacity:1;transform:translateY(0)}
+    dialog{border:0;padding:0;border-radius:18px;width:min(440px,calc(100vw - 28px));box-shadow:0 25px 90px #15233d3a;color:var(--ink)}dialog::backdrop{background:#13203b66;backdrop-filter:blur(3px)}.modal{padding:25px}.modal-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:21px}.modal h2{font-size:19px;margin:0}.modal p{font-size:12px;color:var(--muted);margin:4px 0 0}.close{border:0;background:#f3f5f9;color:#71809a;width:32px;height:32px;border-radius:10px;font-size:19px}.field{display:grid;gap:6px;margin:14px 0}.field label{font-size:12px;font-weight:650;color:#53627b}.field input,.field select{height:43px;border:1px solid var(--line);border-radius:10px;padding:0 12px;background:#fff;outline:none;color:var(--ink);width:100%}.form-error{color:#c44e59;font-size:12px;min-height:16px}.modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}.button.cancel{background:#f0f2f6;color:#59677e;box-shadow:none}.loader{display:inline-block;width:15px;height:15px;border:2px solid #dfe4ff;border-top-color:var(--blue);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle}@keyframes spin{to{transform:rotate(360deg)}}
+    @media(max-width:920px){.app{grid-template-columns:76px minmax(0,1fr)}.sidebar{padding:23px 12px;align-items:center}.brand{padding:0}.brand-copy,.nav-label,.nav-item span:not(.nav-icon),.sidebar-foot{display:none}.nav-group{width:100%}.nav-item{justify-content:center;padding:12px}.nav-icon{font-size:18px}.sidebar{gap:34px}}
+    @media(max-width:640px){.app{display:block}.sidebar{display:none}main{padding:19px 15px 35px}.topbar{margin-bottom:22px}.heading{display:block;margin-bottom:20px}.heading h1{font-size:25px}.actions{margin-top:16px}.actions .month{flex:1;min-width:0}.actions .button{padding:0 12px}.stats{grid-template-columns:1fr 1fr;gap:10px}.stat{padding:15px}.stat:last-child{grid-column:span 2}.stat-value{font-size:21px}.panel-head{padding:16px;align-items:flex-start;flex-direction:column}.search{width:100%}.table-wrap{display:none}.mobile-list{padding:8px 14px 14px}.mobile-row{padding:14px 0;border-bottom:1px solid #f0f2f6}.mobile-row:last-child{border-bottom:0}.mobile-top{display:flex;justify-content:space-between;align-items:center;gap:8px}.mobile-info{display:flex;gap:10px;align-items:center;min-width:0}.mobile-details{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0;color:var(--muted);font-size:11px}.mobile-details b{display:block;color:#4b5b74;font-size:13px;margin-top:2px}.mobile-bottom{display:flex;justify-content:space-between;align-items:center}.mobile-bottom .money{font-size:13px}.crumb{font-size:12px}.user-copy{display:none}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">e</div><div class="brand-copy"><div class="brand-name">ecomdev</div><span class="brand-caption">УЧЕБНЫЙ ЦЕНТР</span></div></div>
+      <div class="nav-group"><div class="nav-label">Рабочее пространство</div><a class="nav-item active" href="#"><span class="nav-icon">▦</span><span>Обзор оплат</span></a><a class="nav-item" href="#students"><span class="nav-icon">♙</span><span>Ученики</span></a></div>
+      <div class="sidebar-foot"><strong>Учёт без лишних таблиц</strong>Платежи и долги учебного центра в одном месте.</div>
+    </aside>
+    <main>
+      <div class="topbar"><div class="crumb">Рабочее пространство <span> / </span> <b>Обзор оплат</b></div><div class="user"><div class="avatar">E</div><div class="user-copy">Учебный центр<span>Панель администратора</span></div></div></div>
+      <section class="heading"><div><h1>Обзор оплат</h1><p>Контролируйте платежи и задолженности учеников</p></div><div class="actions"><input class="month" id="month" type="month"><button class="button" id="open-payment">＋ Внести оплату</button></div></section>
+      <section class="stats" aria-label="Сводка за выбранный месяц">
+        <article class="stat"><div class="stat-top"><span>Всего учеников</span><span class="stat-icon">♙</span></div><div class="stat-value" id="student-count">—</div><div class="stat-note">В учебном центре</div></article>
+        <article class="stat red"><div class="stat-top"><span>Должников</span><span class="stat-icon">↘</span></div><div class="stat-value" id="debtor-count">—</div><div class="stat-note">Не оплатили полную сумму</div></article>
+        <article class="stat green"><div class="stat-top"><span>Осталось собрать</span><span class="stat-icon" style="font-size:10px;font-weight:750">сум</span></div><div class="stat-value" id="debt-total">—</div><div class="stat-note">Сумма долга за месяц</div></article>
+      </section>
+      <section class="panel"><div class="panel-head"><div><h2>Список должников</h2><div class="panel-subtitle" id="month-label">За выбранный месяц</div></div><input class="search" id="search" placeholder="Поиск по имени или группе" aria-label="Поиск по имени или группе"></div><div id="loading" class="loading"><span class="loader"></span> Загрузка данных…</div><div class="table-wrap"><table><thead><tr><th>Ученик</th><th>Группа</th><th>Оплачено</th><th>К оплате</th><th>Статус</th><th></th></tr></thead><tbody id="debtors-table"></tbody></table></div><div id="mobile-list" class="mobile-list"></div></section>
+    </main>
+  </div>
+  <dialog id="payment-dialog"><form class="modal" id="payment-form"><div class="modal-head"><div><h2>Внести оплату</h2><p>Платёж будет добавлен в историю ученика</p></div><button type="button" class="close" data-close aria-label="Закрыть">×</button></div><div class="field"><label for="student-select">Ученик</label><select id="student-select" required><option value="">Выберите ученика</option></select></div><div class="field"><label for="amount">Сумма</label><input id="amount" type="number" min="0.01" step="0.01" placeholder="Например, 500000" required></div><div class="field"><label for="paid-at">Дата оплаты</label><input id="paid-at" type="date" required></div><div class="form-error" id="form-error"></div><div class="modal-actions"><button class="button cancel" type="button" data-close>Отмена</button><button class="button" type="submit">Сохранить оплату</button></div></form></dialog>
+  <div class="notice" id="notice" role="status"></div>
+  <script>
+    const $ = (selector) => document.querySelector(selector);
+    const money = (value) => new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 2 }).format(Number(value)) + ' сум';
+    const now = new Date();
+    const initialMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+    $('#month').value = initialMonth;
+    let debtors = [], students = [];
+    function initials(name) { return name.trim().split(/\s+/).slice(0, 2).map((part) => part[0]).join('').toUpperCase(); }
+    function safe(value) { return String(value).replace(/[&<>"']/g, (character) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[character]); }
+    function showNotice(message) { const notice = $('#notice'); notice.textContent = message; notice.classList.add('show'); setTimeout(() => notice.classList.remove('show'), 2800); }
+    function filteredDebtors() { const term = $('#search').value.trim().toLowerCase(); return debtors.filter((person) => `${person.name} ${person.group_name} ${person.phone}`.toLowerCase().includes(term)); }
+    function renderRows() {
+      const list = filteredDebtors();
+      $('#debtors-table').innerHTML = list.map((p) => `<tr><td><div class="student-cell"><div class="student-avatar">${safe(initials(p.name))}</div><div>${safe(p.name)}<div class="student-meta">${safe(p.phone)}</div></div></div></td><td>${safe(p.group_name)}</td><td class="money">${money(p.paid)}</td><td class="money debt">${money(p.debt)}</td><td><span class="badge ${Number(p.paid) > 0 ? 'partial' : ''}">${Number(p.paid) > 0 ? 'Частично' : 'Нет оплаты'}</span></td><td><button class="pay-small" data-pay="${p.student_id}">Внести</button></td></tr>`).join('');
+      $('#mobile-list').innerHTML = list.map((p) => `<article class="mobile-row"><div class="mobile-top"><div class="mobile-info"><div class="student-avatar">${safe(initials(p.name))}</div><div><strong>${safe(p.name)}</strong><div class="student-meta">${safe(p.phone)}</div></div></div><span class="badge ${Number(p.paid) > 0 ? 'partial' : ''}">${Number(p.paid) > 0 ? 'Частично' : 'Нет оплаты'}</span></div><div class="mobile-details"><div>Группа<b>${safe(p.group_name)}</b></div><div>Оплачено<b>${money(p.paid)}</b></div></div><div class="mobile-bottom"><span class="money debt">Долг: ${money(p.debt)}</span><button class="pay-small" data-pay="${p.student_id}">＋ Внести оплату</button></div></article>`).join('');
+      const empty = list.length === 0;
+      $('#debtors-table').innerHTML ||= '';
+      if (empty) {
+        const message = debtors.length ? 'По вашему запросу ничего не найдено.' : 'За этот месяц задолженностей нет.';
+        $('#debtors-table').innerHTML = `<tr><td colspan="6"><div class="empty"><strong>${message}</strong>Все данные обновляются автоматически.</div></td></tr>`;
+        $('#mobile-list').innerHTML = `<div class="empty"><strong>${message}</strong>Все данные обновляются автоматически.</div>`;
+      }
+      document.querySelectorAll('[data-pay]').forEach((button) => button.addEventListener('click', () => openPayment(Number(button.dataset.pay))));
+    }
+    async function loadData() {
+      $('#loading').style.display = 'block';
+      try {
+        const month = $('#month').value;
+        const [studentResponse, debtorResponse] = await Promise.all([fetch('/students'), fetch(`/debtors?month=${encodeURIComponent(month)}`)]);
+        if (!studentResponse.ok || !debtorResponse.ok) throw new Error('Не удалось загрузить данные. Обновите страницу.');
+        students = await studentResponse.json(); debtors = await debtorResponse.json();
+        $('#student-count').textContent = students.length;
+        $('#debtor-count').textContent = debtors.length;
+        $('#debt-total').textContent = money(debtors.reduce((sum, student) => sum + Number(student.debt), 0));
+        const [year, monthNumber] = month.split('-').map(Number);
+        $('#month-label').textContent = `Задолженности за ${new Intl.DateTimeFormat('ru-RU', { month: 'long', year: 'numeric' }).format(new Date(year, monthNumber - 1, 1))}`;
+        renderRows();
+      } catch (error) { showNotice(error.message); } finally { $('#loading').style.display = 'none'; }
+    }
+    function openPayment(studentId) {
+      const select = $('#student-select');
+      select.innerHTML = '<option value="">Выберите ученика</option>' + students.map((p) => `<option value="${p.id}">${safe(p.name)} · ${safe(p.group_name)}</option>`).join('');
+      if (studentId) select.value = String(studentId);
+      const today = new Date();
+      $('#paid-at').value = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+      $('#form-error').textContent = '';
+      $('#payment-dialog').showModal();
+    }
+    $('#open-payment').addEventListener('click', () => openPayment());
+    $('#month').addEventListener('change', loadData);
+    $('#search').addEventListener('input', renderRows);
+    document.querySelectorAll('[data-close]').forEach((button) => button.addEventListener('click', () => $('#payment-dialog').close()));
+    $('#payment-form').addEventListener('submit', async (event) => {
+      event.preventDefault(); $('#form-error').textContent = '';
+      try {
+        const response = await fetch('/payments', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ student_id: Number($('#student-select').value), amount: $('#amount').value, paid_at: $('#paid-at').value }) });
+        if (!response.ok) { const data = await response.json(); throw new Error(Array.isArray(data.detail) ? data.detail.map((item) => item.msg).join(', ') : data.detail || 'Не удалось сохранить оплату'); }
+        $('#payment-dialog').close(); $('#payment-form').reset(); showNotice('Оплата успешно добавлена'); await loadData();
+      } catch (error) { $('#form-error').textContent = error.message; }
+    });
+    loadData();
+  </script>
+</body>
+</html>
+
