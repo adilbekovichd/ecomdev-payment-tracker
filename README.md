@@ -5,8 +5,8 @@
 ## Запуск с нуля (Windows PowerShell)
 
 ```powershell
-# Сначала перейдите в корень клонированного репозитория:
-cd путь\к\ecomdev-payment-tracker
+git clone https://github.com/adilbekovichd/ecomdev-payment-tracker.git
+cd ecomdev-payment-tracker
 Get-ChildItem requirements.txt, app\main.py
 
 py -m venv .venv
