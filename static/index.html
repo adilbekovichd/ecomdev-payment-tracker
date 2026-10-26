@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#f5f7fb">
   <title>Учет оплат — Ecomdev</title>
   <style>
-    :root{color-scheme:light;--ink:#17233b;--muted:#8290a8;--line:#e9edf4;--blue:#5067ed;--blue-dark:#344ad0;--bg:#f5f7fb;--white:#fff;--green:#239772;--red:#e36b72;--shadow:0 12px 36px rgba(31,47,84,.06)}
+    :root{color-scheme:light;--ink:#17233b;--muted:#8290a8;--line:#e9edf4;--blue:#655cf2;--blue-dark:#4c45d5;--bg:#f5f6fc;--white:#fff;--green:#239772;--red:#e36b72;--shadow:0 16px 42px rgba(31,47,84,.075)}
     *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer} .app{min-height:100vh;display:grid;grid-template-columns:248px minmax(0,1fr)}
     .sidebar{background:#17233b;color:#fff;padding:28px 18px;display:flex;flex-direction:column;gap:36px}.brand{display:flex;align-items:center;gap:12px;padding:0 8px}.brand-mark{width:38px;height:38px;border-radius:13px;background:linear-gradient(145deg,#8293ff,#5067ed);display:grid;place-items:center;font-weight:800;font-size:18px;box-shadow:0 7px 18px #5067ed66}.brand-name{font-size:17px;font-weight:700;letter-spacing:.1px}.brand-caption{display:block;color:#91a0bc;font-size:11px;margin-top:1px}.nav-label{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:#8290a8;padding:0 12px;margin-bottom:10px}.nav-item{display:flex;align-items:center;gap:12px;padding:11px 13px;border-radius:12px;color:#aeb9ce;text-decoration:none;margin:3px 0;font-weight:550}.nav-item.active{color:#fff;background:#2b3955}.nav-icon{width:20px;text-align:center;font-size:16px}.sidebar-foot{margin-top:auto;border:1px solid #ffffff18;background:#ffffff08;border-radius:14px;padding:14px;color:#aeb9ce;font-size:12px}.sidebar-foot strong{display:block;color:#fff;font-size:13px;margin-bottom:3px}
     main{padding:28px clamp(20px,4vw,56px) 48px;max-width:1600px;width:100%;margin:0 auto}.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}.crumb{font-size:13px;color:var(--muted)}.crumb b{color:#4e5d76;font-weight:600}.user{display:flex;align-items:center;gap:10px}.avatar{width:38px;height:38px;border-radius:13px;background:#e9edff;color:#5165dc;display:grid;place-items:center;font-weight:700}.user-copy{font-size:13px;font-weight:650}.user-copy span{display:block;color:var(--muted);font-size:11px;font-weight:450}.heading{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:25px}.heading h1{font-size:29px;letter-spacing:-.8px;line-height:1.2;margin:0 0 7px}.heading p{margin:0;color:var(--muted);font-size:14px}.actions{display:flex;gap:10px;align-items:center}.month{height:43px;border:1px solid var(--line);background:white;border-radius:11px;padding:0 13px;color:#53627b;outline:none}.button{height:43px;padding:0 16px;border:0;border-radius:11px;background:var(--blue);color:#fff;font-weight:650;box-shadow:0 6px 14px #5067ed30;transition:.18s}.button:hover{background:var(--blue-dark);transform:translateY(-1px)}.button.secondary{background:#edf0ff;color:#4e60d6;box-shadow:none}.button.secondary:hover{background:#e2e7ff}
@@ -14,7 +14,21 @@
     .panel{background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}.panel-head{padding:19px 22px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:12px}.panel-head h2{margin:0;font-size:16px;letter-spacing:-.2px}.panel-subtitle{font-size:12px;color:var(--muted);margin-top:3px}.search{height:37px;width:min(220px,40vw);border:1px solid var(--line);background:#fbfcfe;border-radius:10px;padding:0 12px;outline:none}.search:focus,.month:focus,input:focus,select:focus{border-color:#9ba8ff;box-shadow:0 0 0 3px #5067ed19}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:700px}th{text-align:left;padding:12px 20px;color:#92a0b6;font-size:10px;letter-spacing:.7px;text-transform:uppercase;font-weight:650;background:#fcfdff}td{padding:15px 20px;border-top:1px solid #f0f2f6;font-size:13px;color:#4b5b74}tbody tr:hover{background:#fafbff}.student-cell{display:flex;align-items:center;gap:11px;color:var(--ink);font-weight:650}.student-avatar{width:36px;height:36px;flex:0 0 36px;border-radius:12px;background:#edf0ff;color:#5669dd;display:grid;place-items:center;font-size:12px;font-weight:700}.student-meta{font-size:11px;color:var(--muted);font-weight:450;margin-top:1px}.money{font-variant-numeric:tabular-nums;font-weight:650;white-space:nowrap}.debt{color:#d65e67}.badge{display:inline-flex;align-items:center;padding:5px 9px;border-radius:20px;font-size:11px;font-weight:650;background:#fff1f1;color:#d45e68}.badge.partial{background:#fff7e9;color:#bc842d}.pay-small{border:1px solid #e5e9ff;background:#f4f5ff;color:#5365da;border-radius:9px;padding:7px 10px;font-size:11px;font-weight:650}.pay-small:hover{background:#e9ecff}.empty,.loading{padding:48px 20px;text-align:center;color:var(--muted);font-size:13px}.empty strong{display:block;color:#53627b;font-size:15px;margin-bottom:4px}.notice{position:fixed;right:22px;bottom:22px;padding:13px 18px;background:#17233b;color:white;border-radius:12px;box-shadow:var(--shadow);opacity:0;transform:translateY(8px);pointer-events:none;transition:.2s;z-index:20}.notice.show{opacity:1;transform:translateY(0)}
     dialog{border:0;padding:0;border-radius:18px;width:min(440px,calc(100vw - 28px));box-shadow:0 25px 90px #15233d3a;color:var(--ink)}dialog::backdrop{background:#13203b66;backdrop-filter:blur(3px)}.modal{padding:25px}.modal-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:21px}.modal h2{font-size:19px;margin:0}.modal p{font-size:12px;color:var(--muted);margin:4px 0 0}.close{border:0;background:#f3f5f9;color:#71809a;width:32px;height:32px;border-radius:10px;font-size:19px}.field{display:grid;gap:6px;margin:14px 0}.field label{font-size:12px;font-weight:650;color:#53627b}.field input,.field select{height:43px;border:1px solid var(--line);border-radius:10px;padding:0 12px;background:#fff;outline:none;color:var(--ink);width:100%}.form-error{color:#c44e59;font-size:12px;min-height:16px}.modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}.button.cancel{background:#f0f2f6;color:#59677e;box-shadow:none}.loader{display:inline-block;width:15px;height:15px;border:2px solid #dfe4ff;border-top-color:var(--blue);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle}@keyframes spin{to{transform:rotate(360deg)}}
     @media(max-width:920px){.app{grid-template-columns:76px minmax(0,1fr)}.sidebar{padding:23px 12px;align-items:center}.brand{padding:0}.brand-copy,.nav-label,.nav-item span:not(.nav-icon),.sidebar-foot{display:none}.nav-group{width:100%}.nav-item{justify-content:center;padding:12px}.nav-icon{font-size:18px}.sidebar{gap:34px}}
-    @media(max-width:640px){.app{display:block}.sidebar{display:none}main{padding:19px 15px 35px}.topbar{margin-bottom:22px}.heading{display:block;margin-bottom:20px}.heading h1{font-size:25px}.actions{margin-top:16px}.actions .month{flex:1;min-width:0}.actions .button{padding:0 12px}.stats{grid-template-columns:1fr 1fr;gap:10px}.stat{padding:15px}.stat:last-child{grid-column:span 2}.stat-value{font-size:21px}.panel-head{padding:16px;align-items:flex-start;flex-direction:column}.search{width:100%}.table-wrap{display:none}.mobile-list{padding:8px 14px 14px}.mobile-row{padding:14px 0;border-bottom:1px solid #f0f2f6}.mobile-row:last-child{border-bottom:0}.mobile-top{display:flex;justify-content:space-between;align-items:center;gap:8px}.mobile-info{display:flex;gap:10px;align-items:center;min-width:0}.mobile-details{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0;color:var(--muted);font-size:11px}.mobile-details b{display:block;color:#4b5b74;font-size:13px;margin-top:2px}.mobile-bottom{display:flex;justify-content:space-between;align-items:center}.mobile-bottom .money{font-size:13px}.crumb{font-size:12px}.user-copy{display:none}}
+    @media(max-width:640px){.app{display:block}.sidebar{display:none}main{padding:19px 15px 35px}.topbar{margin-bottom:22px}.heading{display:block;margin-bottom:20px}.heading h1{font-size:25px}.actions{margin-top:16px;flex-wrap:wrap}.actions .month{flex:1;min-width:0}.actions .button{padding:0 12px}.stats{grid-template-columns:1fr 1fr;gap:10px}.stat{padding:15px}.stat:last-child{grid-column:span 2}.stat-value{font-size:21px}.panel-head{padding:16px;align-items:flex-start;flex-direction:column}.search{width:100%}.table-wrap{display:none}.mobile-list{padding:8px 14px 14px}.mobile-row{padding:14px 0;border-bottom:1px solid #f0f2f6}.mobile-row:last-child{border-bottom:0}.mobile-top{display:flex;justify-content:space-between;align-items:center;gap:8px}.mobile-info{display:flex;gap:10px;align-items:center;min-width:0}.mobile-details{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0;color:var(--muted);font-size:11px}.mobile-details b{display:block;color:#4b5b74;font-size:13px;margin-top:2px}.mobile-bottom{display:flex;justify-content:space-between;align-items:center;gap:7px}.mobile-bottom .money{font-size:13px}.crumb{font-size:12px}.user-copy{display:none}.hero{padding:20px;min-height:150px}.hero-copy{max-width:68%}.hero h2{font-size:19px}.hero-art{right:-68px;transform:scale(.78);transform-origin:top right}.student-mobile-actions{display:flex;gap:7px;margin-top:11px}}
+    /* Layered, tactile depth for the refreshed dashboard */
+    body{background:radial-gradient(ellipse at 85% 0%,#e9eaff 0,transparent 28%),var(--bg)}
+    .sidebar{background:linear-gradient(165deg,#171c39,#24264f 65%,#333064)}
+    .brand-mark{background:linear-gradient(145deg,#aab2ff,#6865f3 55%,#4943c8);box-shadow:0 7px 0 #3d3ba1,0 14px 22px #11143780;transform:translateY(-3px)}
+    .nav-item.active{background:linear-gradient(110deg,#7775f5,#5b58d9);box-shadow:0 8px 20px #080d2a55,inset 0 1px #ffffff38}
+    .stat,.panel{border-radius:18px;box-shadow:0 5px 0 #e7e8f0,var(--shadow)}
+    .stat{background:linear-gradient(145deg,#fff 0%,#fff 72%,#f4f4ff)}
+    .button{background:linear-gradient(145deg,#7774ff,#5b58e3);box-shadow:0 5px 0 #4845c5,0 11px 20px #6662ea35}
+    .button:hover{background:linear-gradient(145deg,#8582ff,#615dea);box-shadow:0 7px 0 #4845c5,0 14px 23px #6662ea43}
+    .hero{position:relative;min-height:164px;overflow:hidden;border-radius:22px;padding:23px 25px;margin:0 0 18px;background:linear-gradient(112deg,#5856d8,#716bf0 55%,#9d82f5);color:#fff;box-shadow:0 10px 0 #504cc1,0 22px 36px #5b56cb30}
+    .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 74% 6%,#ffffff30,transparent 34%);pointer-events:none}
+    .hero-copy{position:relative;z-index:2;max-width:480px}.hero .eyebrow{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:#e0ddff;font-weight:750}.hero h2{font-size:22px;margin:7px 0 5px;letter-spacing:-.5px}.hero p{margin:0;color:#e6e4ff;font-size:12px;max-width:350px}
+    .hero-art{position:absolute;right:5%;top:-3px;width:225px;height:174px;perspective:600px}.hero-ring{position:absolute;width:130px;height:130px;border:1px solid #ffffff44;border-radius:50%;right:43px;top:12px;transform:rotateX(67deg) rotateZ(-23deg);box-shadow:0 0 0 13px #ffffff08,0 0 0 26px #ffffff06}.hero-orb{position:absolute;width:82px;height:82px;right:84px;top:27px;border-radius:50%;background:radial-gradient(circle at 30% 24%,#fff7d9 0 5%,#ffc7d4 17%,#f681d1 42%,#9262ec 74%,#4739b9);box-shadow:inset -14px -17px 24px #3426a45e,inset 10px 8px 18px #fff6,0 20px 28px #29208772;transform:translateZ(35px)}.hero-cube{position:absolute;right:22px;top:76px;width:64px;height:64px;border:1px solid #ffffff80;border-radius:10px;background:linear-gradient(140deg,#ffffff9c,#ffffff24 55%,#d1c5ff66);box-shadow:12px 18px 22px #34258b55,inset 5px 5px 14px #ffffff6b;transform:rotate(31deg);backdrop-filter:blur(7px)}.hero-tile{position:absolute;width:46px;height:46px;right:145px;top:103px;border:1px solid #ffffff80;border-radius:13px;background:linear-gradient(145deg,#d5f5ff,#7dd6f6 45%,#7478ed);box-shadow:0 13px 23px #36318c66;transform:rotate(-18deg)}.hero-spark{position:absolute;right:19px;top:22px;color:#fff6cb;font-size:21px;text-shadow:0 0 18px #fff}
+    .student-actions{display:flex;justify-content:flex-end;gap:6px}.icon-action{width:32px;height:32px;border:1px solid #e5e9ff;background:#f4f5ff;color:#5365da;border-radius:9px;font-weight:700}.icon-action:hover{background:#e9ecff}.icon-action.delete{background:#fff4f5;color:#cf5d67;border-color:#fae0e3}.student-mobile-actions{display:flex;gap:7px;margin-top:10px}
   </style>
 </head>
 <body>
@@ -26,16 +40,19 @@
     </aside>
     <main>
       <div class="topbar"><div class="crumb">Рабочее пространство <span> / </span> <b>Обзор оплат</b></div><div class="user"><div class="avatar">E</div><div class="user-copy">Учебный центр<span>Панель администратора</span></div></div></div>
-      <section class="heading"><div><h1>Обзор оплат</h1><p>Контролируйте платежи и задолженности учеников</p></div><div class="actions"><input class="month" id="month" type="month"><button class="button" id="open-payment">＋ Внести оплату</button></div></section>
+      <section class="heading"><div><h1>Обзор оплат</h1><p>Контролируйте платежи и задолженности учеников</p></div><div class="actions"><input class="month" id="month" type="month" aria-label="Месяц отчёта"><button class="button secondary" id="open-student">＋ Ученик</button><button class="button" id="open-payment">＋ Внести оплату</button></div></section>
+      <section class="hero"><div class="hero-copy"><span class="eyebrow">Ваш учебный центр</span><h2>Оплаты под контролем</h2><p>Все ученики, платежи и долги собраны в одном удобном пространстве.</p></div><div class="hero-art" aria-hidden="true"><div class="hero-ring"></div><div class="hero-orb"></div><div class="hero-cube"></div><div class="hero-tile"></div><span class="hero-spark">✦</span></div></section>
       <section class="stats" aria-label="Сводка за выбранный месяц">
         <article class="stat"><div class="stat-top"><span>Всего учеников</span><span class="stat-icon">♙</span></div><div class="stat-value" id="student-count">—</div><div class="stat-note">В учебном центре</div></article>
         <article class="stat red"><div class="stat-top"><span>Должников</span><span class="stat-icon">↘</span></div><div class="stat-value" id="debtor-count">—</div><div class="stat-note">Не оплатили полную сумму</div></article>
         <article class="stat green"><div class="stat-top"><span>Осталось собрать</span><span class="stat-icon" style="font-size:10px;font-weight:750">сум</span></div><div class="stat-value" id="debt-total">—</div><div class="stat-note">Сумма долга за месяц</div></article>
       </section>
       <section class="panel"><div class="panel-head"><div><h2>Список должников</h2><div class="panel-subtitle" id="month-label">За выбранный месяц</div></div><input class="search" id="search" placeholder="Поиск по имени или группе" aria-label="Поиск по имени или группе"></div><div id="loading" class="loading"><span class="loader"></span> Загрузка данных…</div><div class="table-wrap"><table><thead><tr><th>Ученик</th><th>Группа</th><th>Оплачено</th><th>К оплате</th><th>Статус</th><th></th></tr></thead><tbody id="debtors-table"></tbody></table></div><div id="mobile-list" class="mobile-list"></div></section>
+      <section class="panel" id="students" style="margin-top:22px"><div class="panel-head"><div><h2>Ученики</h2><div class="panel-subtitle" id="students-subtitle">Список учеников учебного центра</div></div><div class="actions"><input class="search" id="student-search" placeholder="Имя, телефон или группа" aria-label="Поиск по ученикам"><button class="button" id="open-student-list">＋ Добавить ученика</button></div></div><div class="table-wrap"><table><thead><tr><th>Ученик</th><th>Группа</th><th>Месячная сумма</th><th></th></tr></thead><tbody id="students-table"></tbody></table></div><div id="students-mobile-list" class="mobile-list"></div></section>
     </main>
   </div>
-  <dialog id="payment-dialog"><form class="modal" id="payment-form"><div class="modal-head"><div><h2>Внести оплату</h2><p>Платёж будет добавлен в историю ученика</p></div><button type="button" class="close" data-close aria-label="Закрыть">×</button></div><div class="field"><label for="student-select">Ученик</label><select id="student-select" required><option value="">Выберите ученика</option></select></div><div class="field"><label for="amount">Сумма</label><input id="amount" type="number" min="0.01" step="0.01" placeholder="Например, 500000" required></div><div class="field"><label for="paid-at">Дата оплаты</label><input id="paid-at" type="date" required></div><div class="form-error" id="form-error"></div><div class="modal-actions"><button class="button cancel" type="button" data-close>Отмена</button><button class="button" type="submit">Сохранить оплату</button></div></form></dialog>
+  <dialog id="student-dialog"><form class="modal" id="student-form"><div class="modal-head"><div><h2 id="student-modal-title">Добавить ученика</h2><p>Заполните данные ученика и месячную сумму оплаты</p></div><button type="button" class="close" data-close-student aria-label="Закрыть">×</button></div><div class="field"><label for="student-name">Имя и фамилия</label><input id="student-name" maxlength="120" autocomplete="name" placeholder="Например, Алибек Каримов" required></div><div class="field"><label for="student-phone">Телефон</label><input id="student-phone" type="tel" maxlength="40" autocomplete="tel" placeholder="+998 90 123 45 67" required></div><div class="field"><label for="student-group">Учебная группа</label><input id="student-group" maxlength="100" placeholder="Например, Python Backend" required></div><div class="field"><label for="student-fee">Месячная сумма, сум</label><input id="student-fee" type="number" min="0.01" step="0.01" inputmode="decimal" placeholder="Например, 500000" required></div><div class="form-error" id="student-error" role="alert"></div><div class="modal-actions"><button class="button cancel" type="button" data-close-student>Отмена</button><button class="button" id="student-submit" type="submit">Сохранить ученика</button></div></form></dialog>
+  <dialog id="payment-dialog"><form class="modal" id="payment-form"><div class="modal-head"><div><h2>Внести оплату</h2><p>Платёж будет добавлен в историю ученика</p></div><button type="button" class="close" data-close aria-label="Закрыть">×</button></div><div class="field"><label for="student-select">Ученик</label><select id="student-select" required><option value="">Выберите ученика</option></select></div><div class="field"><label for="amount">Сумма, сум</label><input id="amount" type="number" min="0.01" step="0.01" placeholder="Например, 500000" required></div><div class="field"><label for="paid-at">Дата оплаты</label><input id="paid-at" type="date" required></div><div class="form-error" id="form-error"></div><div class="modal-actions"><button class="button cancel" type="button" data-close>Отмена</button><button class="button" type="submit">Сохранить оплату</button></div></form></dialog>
   <div class="notice" id="notice" role="status"></div>
   <script>
     const $ = (selector) => document.querySelector(selector);
@@ -43,7 +60,7 @@
     const now = new Date();
     const initialMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
     $('#month').value = initialMonth;
-    let debtors = [], students = [];
+    let debtors = [], students = [], editingStudentId = null;
     function initials(name) { return name.trim().split(/\s+/).slice(0, 2).map((part) => part[0]).join('').toUpperCase(); }
     function safe(value) { return String(value).replace(/[&<>"']/g, (character) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[character]); }
     function showNotice(message) { const notice = $('#notice'); notice.textContent = message; notice.classList.add('show'); setTimeout(() => notice.classList.remove('show'), 2800); }
@@ -59,7 +76,17 @@
         $('#debtors-table').innerHTML = `<tr><td colspan="6"><div class="empty"><strong>${message}</strong>Все данные обновляются автоматически.</div></td></tr>`;
         $('#mobile-list').innerHTML = `<div class="empty"><strong>${message}</strong>Все данные обновляются автоматически.</div>`;
       }
-      document.querySelectorAll('[data-pay]').forEach((button) => button.addEventListener('click', () => openPayment(Number(button.dataset.pay))));
+    }
+    function renderStudents() {
+      const term = $('#student-search').value.trim().toLowerCase();
+      const list = students.filter((person) => `${person.name} ${person.phone} ${person.group_name}`.toLowerCase().includes(term));
+      const rows = list.map((p) => `<tr><td><div class="student-cell"><div class="student-avatar">${safe(initials(p.name))}</div><div>${safe(p.name)}<div class="student-meta">${safe(p.phone)}</div></div></div></td><td>${safe(p.group_name)}</td><td class="money">${money(p.monthly_fee)}</td><td><div class="student-actions"><button class="pay-small" data-pay="${p.id}">Оплата</button><button class="icon-action" data-edit="${p.id}" aria-label="Изменить ученика" title="Изменить">✎</button><button class="icon-action delete" data-delete="${p.id}" aria-label="Удалить ученика" title="Удалить">×</button></div></td></tr>`).join('');
+      const cards = list.map((p) => `<article class="mobile-row"><div class="mobile-top"><div class="mobile-info"><div class="student-avatar">${safe(initials(p.name))}</div><div><strong>${safe(p.name)}</strong><div class="student-meta">${safe(p.phone)}</div></div></div><span class="money">${money(p.monthly_fee)}</span></div><div class="mobile-details"><div>Группа<b>${safe(p.group_name)}</b></div><div>Месячная оплата<b>${money(p.monthly_fee)}</b></div></div><div class="student-mobile-actions"><button class="pay-small" data-pay="${p.id}">＋ Оплата</button><button class="icon-action" data-edit="${p.id}" aria-label="Изменить ученика">✎</button><button class="icon-action delete" data-delete="${p.id}" aria-label="Удалить ученика">×</button></div></article>`).join('');
+      const emptyMessage = students.length ? 'По вашему запросу ничего не найдено.' : 'Пока нет ни одного ученика.';
+      const empty = `<div class="empty"><strong>${emptyMessage}</strong>${students.length ? 'Измените поисковый запрос.' : 'Добавьте первого ученика, чтобы начать вести учёт.'}<br><button class="button secondary" data-add-student>＋ Добавить ученика</button></div>`;
+      $('#students-table').innerHTML = rows || `<tr><td colspan="4">${empty}</td></tr>`;
+      $('#students-mobile-list').innerHTML = cards || empty;
+      $('#students-subtitle').textContent = `Всего учеников: ${students.length} · показано: ${list.length}`;
     }
     async function loadData() {
       $('#loading').style.display = 'block';
@@ -74,9 +101,26 @@
         const [year, monthNumber] = month.split('-').map(Number);
         $('#month-label').textContent = `Задолженности за ${new Intl.DateTimeFormat('ru-RU', { month: 'long', year: 'numeric' }).format(new Date(year, monthNumber - 1, 1))}`;
         renderRows();
+        renderStudents();
       } catch (error) { showNotice(error.message); } finally { $('#loading').style.display = 'none'; }
     }
+    function openStudent(student) {
+      editingStudentId = student ? Number(student.id) : null;
+      $('#student-form').reset();
+      $('#student-error').textContent = '';
+      $('#student-modal-title').textContent = student ? 'Изменить ученика' : 'Добавить ученика';
+      $('#student-submit').textContent = student ? 'Сохранить изменения' : 'Сохранить ученика';
+      if (student) {
+        $('#student-name').value = student.name;
+        $('#student-phone').value = student.phone;
+        $('#student-group').value = student.group_name;
+        $('#student-fee').value = student.monthly_fee;
+      }
+      $('#student-dialog').showModal();
+      setTimeout(() => $('#student-name').focus(), 30);
+    }
     function openPayment(studentId) {
+      if (!students.length) { showNotice('Сначала добавьте ученика'); openStudent(); return; }
       const select = $('#student-select');
       select.innerHTML = '<option value="">Выберите ученика</option>' + students.map((p) => `<option value="${p.id}">${safe(p.name)} · ${safe(p.group_name)}</option>`).join('');
       if (studentId) select.value = String(studentId);
@@ -85,10 +129,41 @@
       $('#form-error').textContent = '';
       $('#payment-dialog').showModal();
     }
+    $('#open-student').addEventListener('click', () => openStudent());
+    $('#open-student-list').addEventListener('click', () => openStudent());
     $('#open-payment').addEventListener('click', () => openPayment());
     $('#month').addEventListener('change', loadData);
     $('#search').addEventListener('input', renderRows);
+    $('#student-search').addEventListener('input', renderStudents);
+    document.querySelectorAll('[data-close-student]').forEach((button) => button.addEventListener('click', () => $('#student-dialog').close()));
     document.querySelectorAll('[data-close]').forEach((button) => button.addEventListener('click', () => $('#payment-dialog').close()));
+    $('#student-form').addEventListener('submit', async (event) => {
+      event.preventDefault(); $('#student-error').textContent = '';
+      const button = $('#student-submit'); button.disabled = true;
+      const payload = { name: $('#student-name').value.trim(), phone: $('#student-phone').value.trim(), group_name: $('#student-group').value.trim(), monthly_fee: $('#student-fee').value };
+      try {
+        const response = await fetch(editingStudentId ? `/students/${editingStudentId}` : '/students', { method: editingStudentId ? 'PATCH' : 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+        if (!response.ok) { let data = {}; try { data = await response.json(); } catch (error) {} const details = Array.isArray(data.detail) ? data.detail.map((item) => item.msg).join(', ') : data.detail; throw new Error(details || 'Не удалось сохранить ученика'); }
+        $('#student-dialog').close(); showNotice(editingStudentId ? 'Данные ученика обновлены' : 'Ученик успешно добавлен'); await loadData();
+      } catch (error) { $('#student-error').textContent = error.message || 'Ошибка соединения с сервером'; }
+      finally { button.disabled = false; }
+    });
+    document.addEventListener('click', async (event) => {
+      const addButton = event.target.closest('[data-add-student]');
+      const payButton = event.target.closest('[data-pay]');
+      const editButton = event.target.closest('[data-edit]');
+      const deleteButton = event.target.closest('[data-delete]');
+      if (addButton) openStudent();
+      if (payButton) openPayment(Number(payButton.dataset.pay));
+      if (editButton) { const student = students.find((item) => Number(item.id) === Number(editButton.dataset.edit)); if (student) openStudent(student); }
+      if (deleteButton) {
+        const student = students.find((item) => Number(item.id) === Number(deleteButton.dataset.delete));
+        if (!student || !window.confirm(`Удалить ученика «${student.name}»? Его платежи также будут удалены.`)) return;
+        deleteButton.disabled = true;
+        try { const response = await fetch(`/students/${student.id}`, { method: 'DELETE' }); if (!response.ok) throw new Error('Не удалось удалить ученика'); showNotice('Ученик удалён'); await loadData(); }
+        catch (error) { showNotice(error.message || 'Ошибка соединения с сервером'); deleteButton.disabled = false; }
+      }
+    });
     $('#payment-form').addEventListener('submit', async (event) => {
       event.preventDefault(); $('#form-error').textContent = '';
       try {
